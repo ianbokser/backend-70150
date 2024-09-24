@@ -1,0 +1,138 @@
+[
+	{
+		"id": "8a4c1629-acc9-4278-ac5e-904a1539fc4e",
+		"status": true,
+		"title": "mesa",
+		"description": "algarrobo cuadrada",
+		"code": "a5896",
+		"price": 4567,
+		"stock": 2,
+		"category": "muebles",
+		"thumbnails": []
+	},
+	{
+		"id": "e341c830-996c-4369-ac14-caaf8be9fcf4",
+		"status": true,
+		"title": "mesa",
+		"description": "algarrobo cuadrada",
+		"code": "a5896",
+		"price": 4567,
+		"stock": 2,
+		"category": "muebles",
+		"thumbnails": []
+	},
+	{
+		"id": "e33f79df-e02a-49b2-a3a1-7af145947101",
+		"status": false,
+		"title": "mesa",
+		"description": "algarrobo cuadrada",
+		"code": "a5896",
+		"price": 4567,
+		"stock": 2,
+		"category": "muebles",
+		"thumbnails": []
+	},
+	{
+		"id": "be7085a1-10e2-4ee4-b86a-cfa3f722312c",
+		"status": true,
+		"title": "silla",
+		"description": "Ergonómica",
+		"code": "s4545",
+		"price": 3500,
+		"stock": 5,
+		"category": "muebles",
+		"thumbnails": []
+	},
+	{
+		"id": "25eb6c3f-e9c1-43c3-8ee3-9e5f66a4eb12",
+		"status": false,
+		"title": "mesa",
+		"description": "algarrobo cuadrada",
+		"code": "a5896",
+		"price": 4567,
+		"stock": 30,
+		"category": "muebles",
+		"thumbnails": []
+	},
+	{
+		"id": "02e11a62-fbbe-4bad-880e-6bf154a5a69e",
+		"status": true,
+		"title": "heladera",
+		"description": "no frost",
+		"code": "h8745",
+		"price": 500685,
+		"stock": 23,
+		"category": "electrodomestico",
+		"thumbnails": []
+	},
+	{
+		"id": "a2e21ff1-c77c-4997-a41a-bf3873b1388e",
+		"status": false,
+		"title": "televisor",
+		"description": "smart tv",
+		"code": "t8974",
+		"price": 785478,
+		"stock": 15,
+		"category": "tecnologia"
+	},
+	{
+		"id": "77d1b496-0698-4dd5-9d5e-1c36b67b6bc9",
+		"status": "false",
+		"title": "headset",
+		"description": "inalambrico",
+		"code": "h8874",
+		"price": 120000,
+		"stock": 20,
+		"category": "tecnologia"
+	},
+	{
+		"id": "e7c3fab0-1c64-4c3d-9e2f-02722fec573b",
+		"status": false,
+		"title": "headset",
+		"description": "inalambrico",
+		"code": "h8874",
+		"price": 120000,
+		"stock": 20,
+		"category": "tecnologia"
+	},
+	{
+		"id": "c66b0958-b470-4906-bb1e-b868de11e3df",
+		"status": false,
+		"title": "headset",
+		"description": "inalambrico",
+		"code": "h8874",
+		"price": 120000,
+		"stock": 20,
+		"category": "tecnologia"
+	},
+	{
+		"id": "e656fdb1-b18b-495f-9055-adbb294eca18",
+		"status": false,
+		"title": "headset",
+		"description": "inalambrico",
+		"code": "h8874",
+		"price": 120000,
+		"stock": 20,
+		"category": "tecnologia"
+	},
+	{
+		"id": "5c953c09-ac01-4bae-8980-582909c2fb9f",
+		"status": true,
+		"title": "headset",
+		"description": "inalambrico",
+		"code": "h8874",
+		"price": 120000,
+		"stock": 20,
+		"category": "tecnologia"
+	},
+	{
+		"id": "7caabbb8-cd26-4410-859f-8680fb0d43a7",
+		"status": true,
+		"title": "headset",
+		"description": "inalambrico",
+		"code": "h8874",
+		"price": 120000,
+		"stock": 20,
+		"category": "tecnologia"
+	}
+]
