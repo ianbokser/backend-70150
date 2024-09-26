@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser'
 import { initializePassport } from './config/passport.config.js'
 import cartRouter from './routes/carts.router.js'
 import productsRouter from './routes/products.router.js'
+import mocksRouter from './routes/mocks.router.js'
 import { __dirname } from './utils/path.js'
 import { initMongoDB } from './db/dbMongo.js'
 import { initializePassport } from './config/passport.config.js'
@@ -39,6 +40,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use('/api/carts/', cartRouter)
 app.use('/api/products/', productsRouter)
+app.use('/api/products/', mocksRouter)
 
 initMongoDB()
 
