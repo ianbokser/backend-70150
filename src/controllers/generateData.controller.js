@@ -1,5 +1,5 @@
-import * as userService from "../services/user.service.js";
-import * as petService from "../services/pet.service.js";
+import * as userService from "../services/user.services.js";
+import * as petService from "../services/pet.services.js";
 
 export const createData = async (req, res, next) => {
     try {

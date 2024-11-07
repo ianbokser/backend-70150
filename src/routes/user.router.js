@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { userModel } from "../Daos/models/user.model.js";
+import { userModel } from "../daos/mongodb/models/user.model.js";
 
 const router = Router();
 

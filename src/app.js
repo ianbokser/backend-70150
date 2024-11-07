@@ -11,11 +11,17 @@ import productsRouter from './routes/products.router.js'
 import mocksRouter from './routes/mocks.router.js'
 import { __dirname } from './utils/path.js'
 import { initMongoDB } from './db/dbMongo.js'
-import { initializePassport } from './config/passport.config.js'
+import swaggerUi from 'swagger-ui-express'
+import swaggerJSDoc from 'swagger-jsdoc'
+import { info } from './docs/info.js'
 
 
 const port = 8080
 const app = express()
+
+const specs = swaggerJSDoc(info)
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -47,5 +53,5 @@ initMongoDB()
 
 
 app.listen(port, () => {
-    console.log(`Escuchando en el puerto ${port}`)
+  console.log(`Escuchando en el puerto ${port}`)
 })

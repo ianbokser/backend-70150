@@ -1,7 +1,7 @@
 import { Router } from "express";
 import * as cartController from "../controllers/cart.controller.js";
 import passport from "passport";
-import { roleValidation } from "../middlewares/rolevalidation.js";
+import { roleValidation } from "../middlewares/roleValidator.js";
 
 
 const cartRouter = Router();

@@ -1,12 +1,12 @@
 import passport from "passport";
 import * as service from '../services/cart.services.js'
 import { Router } from "express";
-import { userModel } from "../Daos/models/user.model.js";
-import { roleValidation } from "../middlewares/rolevalidation.js";
+import { userModel } from "../daos/mongodb/models/user.model.js";
+import { roleValidation } from "../middlewares/roleValidator.js";
 import { resUserDto } from "../dtos/user.dto.js";
 import { createHash } from "../utils/hash.js";
 import { generateToken } from "../utils/jwt.js";
-import  MailService  from "../services/mailing.services.js";
+import MailService from "../services/mailing.services.js";
 
 
 const mailService = new MailService();
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   try {
     const hashPassword = await createHash(password);
 
-    const userCart =  await service.createCart();
+    const userCart = await service.createCart();
 
     const user = await userModel.create({
       first_name,
@@ -50,41 +50,41 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", passport.authenticate("login", {session: false,failureRedirect: "/api/auth/login-error", }), roleValidation(["user", "admin"]), async (req, res) => {
-    const user = req.user;
+router.post("/login", passport.authenticate("login", { session: false, failureRedirect: "/api/auth/login-error", }), roleValidation(["user", "admin"]), async (req, res) => {
+  const user = req.user;
 
-    if (!user) {
-      return res.status(401).json({ error: "Credenciales incorrectas" });
-    }
-
-    const payload = {
-        first_name: user.first_name,
-        last_name: user.last_name,
-      email: user.email,
-      role: user.role,
-      cart: user.cart
-    };
-
-    const token = generateToken(payload);
-
-    res.cookie("access-token", token, { maxAge: 900000, httpOnly: true });
-
-    res.status(200).json({ message: "Sesion Iniciada", token: token });
+  if (!user) {
+    return res.status(401).json({ error: "Credenciales incorrectas" });
   }
+
+  const payload = {
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    role: user.role,
+    cart: user.cart
+  };
+
+  const token = generateToken(payload);
+
+  res.cookie("access-token", token, { maxAge: 900000, httpOnly: true });
+
+  res.status(200).json({ message: "Sesion Iniciada", token: token });
+}
 );
 
 router.get("/login-error", (req, res) => {
-    res.status(401).json({ error: "Credenciales incorrectas" });
+  res.status(401).json({ error: "Credenciales incorrectas" });
 });
 
-router.get("/current", passport.authenticate("jwt", { session: false }), roleValidation(['admin','user']),(req, res) => {
-    res.status(200).json({ message: "bienvenido", user: resUserDto(req.user) });
-  }
+router.get("/current", passport.authenticate("jwt", { session: false }), roleValidation(['admin', 'user']), (req, res) => {
+  res.status(200).json({ message: "bienvenido", user: resUserDto(req.user) });
+}
 );
 
 router.get("/logout", (req, res) => {
   res.clearCookie("token");
-  res.status(200).json({message: "Sesion Finalizada"});
+  res.status(200).json({ message: "Sesion Finalizada" });
 });
 
 export default router;

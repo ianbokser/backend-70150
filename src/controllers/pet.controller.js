@@ -1,4 +1,4 @@
-import * as petService from "../services/pet.service.js";
+import * as petService from "../services/pet.services.js";
 
 export const createPet = async (req, res, next) => {
 
