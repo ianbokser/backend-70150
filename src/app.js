@@ -31,17 +31,6 @@ app.use(cookieParser())
 initializePassport()
 app.use(passport.initialize())
 
-
-mongoose
-  .connect("mongodb://localhost:27017/")
-  .then(() => {
-    console.log("Conectado a MongoDB");
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use('/api/carts/', cartRouter)

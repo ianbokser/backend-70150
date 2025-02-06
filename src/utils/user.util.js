@@ -1,9 +1,12 @@
 import { createHash } from "./hash.js";
 import { faker } from "@faker-js/faker";
+import dotenv from "dotenv";
 faker.locale = "es";
 
-const password = "coder123";
-const hashPassword = await createHash(password);
+dotenv.config();
+const HASHPASSWORD = process.env.HASHPASSWORD;
+
+const hashPassword = await createHash(HASHPASSWORD);
 
 export const generateUser = () => {
     return {
