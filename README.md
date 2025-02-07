@@ -1,2 +1,2 @@
-# Programacion-Backend-III-Testing-y-Escalabilidad-Backend
-En este repositorio se encuentran los trabajos del curso "Programación Backend III: Testing y Escalabilidad Backend" de CoderHouse
+Programacion-Backend-III-Testing-y-Escalabilidad-Backend
+imagen en dockerhub:https://hub.docker.com/repository/docker/chulygames/mi-backend/general

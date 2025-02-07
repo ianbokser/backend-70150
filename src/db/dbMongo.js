@@ -3,7 +3,6 @@ import 'dotenv/config';
 
 
 const connectionString = process.env.MONGO_URL;
-console.log("MONGO_URL:", process.env.MONGO_URL);
 
 
 export const initMongoDB = async () => {
