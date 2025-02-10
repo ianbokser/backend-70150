@@ -64,22 +64,35 @@ paths:
       security:   
         - ApiKeyAuth: []  
   /api/users/{id}:
-    get:
-      summary: Obtiene un usuario por su ID se requiere iniciar sesion
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: ID del usuario
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Obtenido correctamente
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/parameters/schemas/userById'
-        '404':
-          description: ID invalido
-      tags: [Users]
+  get:
+    summary: Obtiene un usuario por su ID (requiere sesión)
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID del usuario
+        schema:
+          type: string
+          example: "64e536af59dc7d70e73d8cac"
+    responses:
+      '200':
+        description: Usuario encontrado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              id: "64e536af59dc7d70e73d8cac"
+              first_name: "Pablo"
+              last_name: "Perez"
+              email: "mail@mail.com"
+              age: 33
+              role: "user"
+      '404':
+        description: Usuario no encontrado
+        content:
+          application/json:
+            example:
+              status: 404
+              message: "Usuario no encontrado"
+    tags: [Users]
