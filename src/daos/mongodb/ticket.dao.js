@@ -11,24 +11,20 @@ export default class TicketDao {
         }
     }
 
-  
     async createTicket(ticket) {
         try {
-            await TicketModel.create(ticket);
-            return await this.getTicketByCode(ticket.code);
+            const newTicket = await TicketModel.create(ticket);
+            return newTicket;
         } catch (error) {
             console.error("Error al crear el ticket:", error);
             throw error;
         }
     }
+    
 
-  
-    async getTicketByCode(ticketCode) {
-        try {
-            return await TicketModel.find({ code: ticketCode });
-        } catch (error) {
-            console.error("Error al obtener el ticket por código:", error);
-            throw error;
-        }
+    async getTicketByCode(code) {
+        return await TicketModel.find({ code }).lean();
     }
+    
+    
 }
