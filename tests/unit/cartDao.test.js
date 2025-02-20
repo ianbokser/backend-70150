@@ -9,7 +9,7 @@ const MONGO_TEST_URI = "mongodb+srv://ianbok2121:eivuQ6XXNh1N3T4t@backend-70150.
 const cartDAO = new CartDao();
 const productDAO = new ProductDao();
 
-describe("Pruebas DAO de Carritos", function () {
+describe("➖➖➖➖➖➖➖➖ Pruebas DAO de Carritos ➖➖➖➖➖➖➖➖", function () {
   this.timeout(8000);
 
   before(async () => {
@@ -25,20 +25,20 @@ describe("Pruebas DAO de Carritos", function () {
     await mongoose.connection.close();
   });
 
-  it("📌 Debería crear un carrito vacío", async () => {
+  it("🟪 Debería crear un carrito vacío", async () => {
     const cart = await cartDAO.createCart();
     expect(cart).to.have.property("_id");
     expect(cart.products).to.be.an("array").that.is.empty;
   });
 
-  it("📌 Debería obtener un carrito por su ID", async () => {
+  it("🟪 Debería obtener un carrito por su ID", async () => {
     const cart = await cartDAO.createCart();
     const result = await cartDAO.getCartById(cart._id);
     expect(result).to.be.an("object");
     expect(result._id.toString()).to.equal(cart._id.toString());
   });
 
-  it("📌 Debería agregar un producto al carrito", async () => {
+  it("🟪 Debería agregar un producto al carrito", async () => {
     const cart = await cartDAO.createCart();
     const product = await productDAO.createProduct({
       name: "Producto Test",
@@ -52,7 +52,7 @@ describe("Pruebas DAO de Carritos", function () {
     expect(updatedCart.products[0].product.toString()).to.equal(product._id.toString());
   });
 
-  it("📌 Debería actualizar la cantidad de un producto en el carrito", async () => {
+  it("🟪 Debería actualizar la cantidad de un producto en el carrito", async () => {
     const cart = await cartDAO.createCart();
     const product = await productDAO.createProduct({
       name: "Producto Test",
@@ -67,7 +67,7 @@ describe("Pruebas DAO de Carritos", function () {
     expect(updatedCart.products[0].quantity).to.equal(5);
   });
 
-  it("📌 Debería eliminar un producto del carrito", async () => {
+  it("🟪 Debería eliminar un producto del carrito", async () => {
     const cart = await cartDAO.createCart();
     const product = await productDAO.createProduct({
       name: "Producto Test",
@@ -82,7 +82,7 @@ describe("Pruebas DAO de Carritos", function () {
     expect(updatedCart.products).to.be.an("array").that.is.empty;
   });
 
-  it("📌 Debería vaciar completamente el carrito", async () => {
+  it("🟪 Debería vaciar completamente el carrito", async () => {
     const cart = await cartDAO.createCart();
     const product1 = await productDAO.createProduct({
       name: "Producto 1",

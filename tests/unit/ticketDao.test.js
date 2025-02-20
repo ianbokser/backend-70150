@@ -2,13 +2,12 @@ import mongoose from "mongoose";
 import { describe, it, before, after, beforeEach } from "mocha";
 import { expect } from "chai";
 import TicketDao from "../../src/daos/mongodb/ticket.dao.js";
-import { TicketModel } from "../../src/daos/mongodb/models/ticket.model.js";
 
 const MONGO_TEST_URI = "mongodb+srv://ianbok2121:eivuQ6XXNh1N3T4t@backend-70150.fmiy3.mongodb.net/?retryWrites=true&w=majority&appName=backend-70150";
 
 const ticketDAO = new TicketDao();
 
-describe("Pruebas DAO de Tickets", function () {
+describe("➖➖➖➖➖➖➖➖ Pruebas DAO de Tickets ➖➖➖➖➖➖➖➖", function () {
   this.timeout(8000);
 
   before(async () => {
@@ -23,7 +22,7 @@ describe("Pruebas DAO de Tickets", function () {
     await mongoose.connection.close();
   });
 
-  it("Debería crear un ticket en la base de datos", async () => {
+  it("🟪 Debería crear un ticket en la base de datos", async () => {
     const ticketMock = {
       code: "TICKET123",
       amount: 100,
@@ -40,7 +39,7 @@ describe("Pruebas DAO de Tickets", function () {
     expect(result.purchaser).to.equal(ticketMock.purchaser);
   });
 
-  it("Debería obtener todos los tickets", async () => {
+  it("🟪 Debería obtener todos los tickets", async () => {
     await ticketDAO.createTicket({
       code: "TICKET1",
       amount: 50,
@@ -61,7 +60,7 @@ describe("Pruebas DAO de Tickets", function () {
     expect(result.length).to.equal(2);
   });
 
-  it("Debería obtener un ticket por código", async () => {
+  it("🟪 Debería obtener un ticket por código", async () => {
     const ticketMock = {
       code: "UNICO123",
       amount: 200,

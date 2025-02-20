@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   try {
     const hashPassword = await createHash(password);
 
-    const userCart = await service.createCart();
+    const userCart = await service.create();
 
     const user = await userModel.create({
       first_name,
@@ -46,12 +46,14 @@ router.post("/register", async (req, res) => {
 
     res.status(201).json(user);
   } catch (error) {
+    console.error("Error en /register:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
 router.post("/login", passport.authenticate("login", { session: false, failureRedirect: "/api/auth/login-error", }), roleValidation(["user", "admin"]), async (req, res) => {
   const user = req.user;
+  console.log("Usuario autenticado:", req.user);
 
   if (!user) {
     return res.status(401).json({ error: "Credenciales incorrectas" });
@@ -67,7 +69,9 @@ router.post("/login", passport.authenticate("login", { session: false, failureRe
 
   const token = generateToken(payload);
 
-  res.cookie("access-token", token, { maxAge: 900000, httpOnly: true });
+  res.cookie("token", token, { httpOnly: true, secure: false });
+
+  // res.cookie("access-token", token, { maxAge: 900000, httpOnly: true });
 
   res.status(200).json({ message: "Sesion Iniciada", token: token });
 }
@@ -79,8 +83,7 @@ router.get("/login-error", (req, res) => {
 
 router.get("/current", passport.authenticate("jwt", { session: false }), roleValidation(['admin', 'user']), (req, res) => {
   res.status(200).json({ message: "bienvenido", user: resUserDto(req.user) });
-}
-);
+});
 
 router.get("/logout", (req, res) => {
   res.clearCookie("token");

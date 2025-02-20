@@ -8,7 +8,7 @@ const MONGO_TEST_URI = "mongodb+srv://ianbok2121:eivuQ6XXNh1N3T4t@backend-70150.
 
 const productDAO = new ProductDao();
 
-describe("Pruebas DAO de Productos", function () {
+describe("➖➖➖➖➖➖➖➖ Pruebas DAO de Productos ➖➖➖➖➖➖➖➖", function () {
   this.timeout(8000);
 
   before(async () => {
@@ -23,7 +23,7 @@ describe("Pruebas DAO de Productos", function () {
     await mongoose.connection.close();
   });
 
-  it("Debería crear un producto en la base de datos", async () => {
+  it("🟪 Debería crear un producto en la base de datos", async () => {
     const productMock = {
       name: "Producto Test",
       description: "Descripción de prueba",
@@ -40,7 +40,7 @@ describe("Pruebas DAO de Productos", function () {
     expect(result.stock).to.equal(productMock.stock);
   });
 
-  it("Debería obtener un producto por su ID", async () => {
+  it("🟪 Debería obtener un producto por su ID", async () => {
     const productMock = await productDAO.createProduct({
       name: "Producto Test",
       description: "Descripción de prueba",
@@ -55,7 +55,7 @@ describe("Pruebas DAO de Productos", function () {
     expect(result._id.toString()).to.equal(productMock._id.toString());
   });
 
-  it("Debería obtener todos los productos con paginación", async () => {
+  it("🟪 Debería obtener todos los productos con paginación", async () => {
     await productDAO.createProduct({
       name: "Producto 1",
       description: "Descripción 1",
@@ -76,7 +76,7 @@ describe("Pruebas DAO de Productos", function () {
     expect(result.docs.length).to.be.greaterThan(0);
   });
 
-  it("Debería actualizar un producto", async () => {
+  it("🟪 Debería actualizar un producto", async () => {
     const productMock = await productDAO.createProduct({
       name: "Producto Antiguo",
       description: "Descripción Antigua",
@@ -100,7 +100,7 @@ describe("Pruebas DAO de Productos", function () {
     expect(result.stock).to.equal(updatedData.stock);
   });
 
-  it("Debería eliminar un producto por ID", async () => {
+  it("🟪 Debería eliminar un producto por ID", async () => {
     const productMock = await productDAO.createProduct({
       name: "Producto para Eliminar",
       description: "Descripción de eliminación",

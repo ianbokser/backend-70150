@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "start": "node src/app.js",
-    "test": "mocha tests/**/*.test.js --timeout 5000"
+    "test": "mocha tests/**/*.test.js --timeout 5000",
+    "testintegra": "mocha tests/integration/router.test.js --timeout 5000"
   },
   "keywords": [],
   "author": "",

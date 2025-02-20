@@ -4,13 +4,16 @@ import jwt from "jsonwebtoken";
 import jwtStrategy from "passport-jwt";
 import { userModel } from "../daos/mongodb/models/user.model.js";
 import { comparePassword } from "../utils/hash.js";
+import dotenv from "dotenv"
+
+dotenv.config();
+const PRIVATE_KEY = process.env.JWT_SECRET;
 
 const LocalStrategy = local.Strategy;
 const JWTStrategy = jwtStrategy.Strategy;
 const ExtractJWT = jwtStrategy.ExtractJwt;
 
 const initializePassport = () => {
-  // Login Strategy
   passport.use(
     "login",
     new LocalStrategy(
@@ -52,8 +55,11 @@ const initializePassport = () => {
     "jwt",
     new JWTStrategy(
       {
-        jwtFromRequest: ExtractJWT.fromExtractors([cookieExtractor]),
-        secretOrKey: "s3cr3t",
+        jwtFromRequest: ExtractJWT.fromExtractors([
+          ExtractJWT.fromAuthHeaderAsBearerToken(),
+          cookieExtractor,
+        ]),
+        secretOrKey: PRIVATE_KEY,
       },
       async (payload, done) => {
         try {

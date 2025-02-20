@@ -7,7 +7,7 @@ const MONGO_TEST_URI = "mongodb+srv://ianbok2121:eivuQ6XXNh1N3T4t@backend-70150.
 
 const userDAO = new UserDao();
 
-describe("Pruebas DAO de Usuarios", function () {
+describe("➖➖➖➖➖➖➖➖ Pruebas DAO de Usuarios ➖➖➖➖➖➖➖➖", function () {
   this.timeout(8000);
 
   before(async () => {
@@ -22,7 +22,7 @@ describe("Pruebas DAO de Usuarios", function () {
     await mongoose.connection.close();
   });
 
-  it("Debería crear un usuario en la base de datos", async () => {
+  it("🟪 Debería crear un usuario en la base de datos", async () => {
     const userMock = {
       first_name: "Juan",
       last_name: "Pérez",
@@ -44,7 +44,7 @@ describe("Pruebas DAO de Usuarios", function () {
     expect(result.role).to.equal(userMock.role);
   });
 
-  it("Debería obtener todos los usuarios", async () => {
+  it("🟪 Debería obtener todos los usuarios", async () => {
     await userDAO.createUser({
       first_name: "Carlos",
       last_name: "López",
@@ -69,7 +69,7 @@ describe("Pruebas DAO de Usuarios", function () {
     expect(result.length).to.equal(2);
   });
 
-  it("Debería obtener un usuario por email", async () => {
+  it("🟪 Debería obtener un usuario por email", async () => {
     const userMock = {
       first_name: "Lucia",
       last_name: "Fernández",

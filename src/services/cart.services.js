@@ -22,7 +22,7 @@ export const getById = async (id) => {
 
 export const create = async () => {
   try {
-    const newcart = await cartDao.create();
+    const newcart = await cartDao.createCart();
     if (!newcart) return false;
     else return newcart;
   } catch (error) {
