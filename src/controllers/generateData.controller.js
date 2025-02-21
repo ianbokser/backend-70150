@@ -5,7 +5,7 @@ export const createData = async (req, res, next) => {
     try {
         const { cant } = req.query;
         const [userResponse, petResponse] = await Promise.all([
-            userService.createUserMock(cant),
+            userService.createUsersMock(cant),
             petService.createPetMock(cant)
         ]);
         res.status(200).json({

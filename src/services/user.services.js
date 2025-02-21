@@ -1,5 +1,6 @@
 import { generateUser } from "../utils/user.util.js";
 import UserDao from "../daos/mongodb/user.dao.js";
+
 const userDao = new UserDao();
 
 
@@ -11,7 +12,7 @@ export const createUsersMock = async (cant = 50) => {
             const user = generateUser();
             usersArray.push(user);
         }
-        return await UserModel.create(usersArray);
+        return await userDao.createUser(usersArray);
     } catch (error) {
         throw new Error(error);
     }
